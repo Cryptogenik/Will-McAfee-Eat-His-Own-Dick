@@ -11,6 +11,23 @@
 	<link rel="stylesheet" href="css/style.css">
   </head>
   <body>
+	  <script>
+var deadline = new Date("Nov 29, 2020 9:56:30").getTime();
+var x = setInterval(function() {
+var now = new Date().getTime();
+var t = deadline - now;
+var days = Math.floor(t / (1000 * 60 * 60 * 24));
+var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((t % (1000 * 60)) / 1000);
+document.getElementById("daysLeft").innerHTML = days + "d " 
++ hours + "h " + minutes + "m " + seconds + "s ";
+    if (t < 0) {
+        clearInterval(x);
+        document.getElementById("daysLeft").innerHTML = "EXPIRED";
+    }
+}, 1000);
+</script>
   <div class="site-wrapper">
 
       <div class="site-wrapper-inner">
@@ -28,7 +45,8 @@
 		    <span id="percDiff" class="badge" style="font-size: 2rem;"></span></br>
 			<span id="aheadOrBelow"></span> McAfee's bet's price target.</p>
 			<p><span id="droppedOrIncreased"></span> on target for $1M/Bitcoin
-		    </br> by the three year deadline ending in <span id="daysLeft" class="badge badge-primary"></span>.</p>
+			</br> Time remaining: </br> 
+			<span id="daysLeft" class="badge badge-primary" style="font-size: 2rem;"></span>.</p>
 			<a href="https://twitter.com/officialmcafee/status/935900326007328768" target="_blank">
 				<img src="img/tweet2.jpg" alt="McAfee tweet" class="img-thumbnail">
 			</a>
@@ -57,7 +75,7 @@
 	  function gtag(){dataLayer.push(arguments)};
 	  gtag('js', new Date());
 
-	  gtag('config', 'UA-41697901-3');
+	  gtag('config', 'UA-NNNN-N');
 	</script>
   </body>
 </html>
