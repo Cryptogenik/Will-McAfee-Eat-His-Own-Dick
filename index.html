@@ -35,28 +35,6 @@ document.getElementById("daysLeft").innerHTML = days + "d "
       <div class="site-wrapper-inner">
 
         <div class="cover-container">
-
-		<script type="text/javascript">
-			var clock;
-
-			$(document).ready(function() {
-
-				// Grab the current date
-				var currentDate = new Date();
-
-				// Set some date in the future. In this case, it's always Jan 1
-				var futureDate  = new Date("Nov 29, 2020 9:56:30").getTime();
-
-				// Calculate the difference in seconds between the future and current date
-				var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
-
-				// Instantiate a coutdown FlipClock
-				clock = $('.clock').FlipClock(diff, {
-					clockFace: 'DailyCounter',
-					countdown: true
-				});
-			});
-		</script> 
 		
           <div class="inner cover">
 		  <p class="lead">A simple website to track how McAfee's <s>$500k</s> $1M/Bitcoin in 3 years bet is going</p>
@@ -93,14 +71,26 @@ document.getElementById("daysLeft").innerHTML = days + "d "
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script src="js/mcafee.js"></script>
-	<!-- Global Site Tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-NNNNN-3"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments)};
-	  gtag('js', new Date());
+    <script>
+			var clock;
 
-	  gtag('config', 'UA-NNNN-N');
-	</script>
+			jQuery(document).ready(function() {
+
+				// Grab the current date
+				var currentDate = new Date();
+
+				// Set some date in the future. In this case, it's always Jan 1
+				var futureDate  = new Date("Nov 29, 2020 9:56:30").getTime();
+
+				// Calculate the difference in seconds between the future and current date
+				var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
+
+				// Instantiate a coutdown FlipClock
+				clock = jQuery('.clock').FlipClock(diff, {
+					clockFace: 'DailyCounter',
+					countdown: true
+				});
+			});
+     </script>
   </body>
 </html>
