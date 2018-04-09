@@ -6,12 +6,14 @@
     <meta name="description" content="A website to track if McAfee is going to be eating his own dick on live TV if Bitcoin price is not over $500k.">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/flipclock.css">
+	<script src="js/flipclock.js"></script>
   </head>
   <body>
-	  <script>
+	  <!--script>
 var deadline = new Date("Nov 29, 2020 9:56:30").getTime();
 var x = setInterval(function() {
 var now = new Date().getTime();
@@ -27,13 +29,35 @@ document.getElementById("daysLeft").innerHTML = days + "d "
         document.getElementById("daysLeft").innerHTML = "EXPIRED";
     }
 }, 1000);
-</script>
+</script-->
   <div class="site-wrapper">
 
       <div class="site-wrapper-inner">
 
         <div class="cover-container">
 
+		<script type="text/javascript">
+			var clock;
+
+			$(document).ready(function() {
+
+				// Grab the current date
+				var currentDate = new Date();
+
+				// Set some date in the future. In this case, it's always Jan 1
+				var futureDate  = new Date("Nov 29, 2020 9:56:30").getTime();
+
+				// Calculate the difference in seconds between the future and current date
+				var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
+
+				// Instantiate a coutdown FlipClock
+				clock = $('.clock').FlipClock(diff, {
+					clockFace: 'DailyCounter',
+					countdown: true
+				});
+			});
+		</script> 
+		
           <div class="inner cover">
 		  <p class="lead">A simple website to track how McAfee's <s>$500k</s> $1M/Bitcoin in 3 years bet is going</p>
             <h1 class="cover-heading">Will McAfee eat his own dick ?</h1>
@@ -44,9 +68,10 @@ document.getElementById("daysLeft").innerHTML = days + "d "
 			<p>Bitcoin's current price index is</br>
 		    <span id="percDiff" class="badge" style="font-size: 2rem;"></span></br>
 			<span id="aheadOrBelow"></span> McAfee's bet's price target.</p>
-			<p><span id="droppedOrIncreased"></span> on target for $1M/Bitcoin
+			<p><span id="droppedOrIncreased"></span> on target for $1M/Bitcoin </p>
 			</br> Time remaining: </br> 
-			<span id="daysLeft" class="badge badge-primary" style="font-size: 2rem;"></span> </p>
+				<div class="clock" style="margin:2em;"></div>			
+				<!--span id="daysLeft" class="badge badge-primary" style="font-size: 2rem;"></span-->
 			<a href="https://twitter.com/officialmcafee/status/935900326007328768" target="_blank">
 				<img src="img/tweet2.jpg" alt="McAfee tweet" class="img-thumbnail">
 			</a>
